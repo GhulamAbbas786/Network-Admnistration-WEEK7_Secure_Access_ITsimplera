@@ -1,7 +1,7 @@
 # 🌐 Enterprise Secure Network Architecture & Verification Lab
 
 <p align="center">
-  <img src="images/topology.png" alt="Network Topology Diagram" width="700"/>
+  <img src="Screenshots/topology.png" alt="Network Topology Diagram" width="700"/>
 </p>
 
 ## 📌 Overview
@@ -16,18 +16,13 @@ This repository contains the complete network architecture, troubleshooting docu
 * **LAN-to-LAN Reachability:** Full encrypted packet transit between internal subnets (`192.168.1.0/24` and `192.168.2.0/24`).
 
 ### 🧱 2. Perimeter Security & Zone-Based Firewall (ZBF)
-<p align="left">
-  <img src="http://googleusercontent.com/image_collection/image_retrieval/7304060347880881647" alt="Security Shield" width="60"/>
-</p>
 
 * **Zone Separation:** Configured `INSIDE-ZONE` and `OUTSIDE-ZONE` on the Headquarters router.
 * **Traffic Inspection:** Implemented inspection policies (`ZP-INSIDE-TO-OUTSIDE`) targeting ICMP, TCP, UDP, and OSPF traffic.
 * **Default Deny Policy:** Enforced strict perimeter rules where uninspected or unsolicited incoming traffic from the WAN is automatically dropped by the implicit class-default rule.
 
 ### ⚙️ 3. Routing & Device Hardening
-<p align="left">
-  <img src="http://googleusercontent.com/image_collection/image_retrieval/14742156939587188566" alt="Network Router" width="60"/>
-</p>
+
 
 * **OSPFv2 Routing:** Established dynamic routing across Area 0 using MD5 authentication on point-to-point serial/WAN interfaces.
 * **AAA & Secure Access:** Secured administrative remote management via SSH version 2, backed by local user accounts and AAA authentication frameworks to mitigate lockout risks.
