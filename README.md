@@ -1,5 +1,8 @@
+
 🌐 Enterprise Secure Network Architecture & Verification Lab
+
 📌 Overview
+
 This repository contains the complete network architecture, troubleshooting documentation, and verification reports for a two-site enterprise topology built using GNS3. The project simulates a secure site-to-site WAN deployment connecting Headquarters and Branch routers.
 
 🚀 Key Architecture & Features
