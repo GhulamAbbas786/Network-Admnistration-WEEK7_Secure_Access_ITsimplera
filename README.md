@@ -28,6 +28,12 @@ Syslog: Comprehensive informational-level logging.
 
 SNMPv3: Secure administrative group and view definitions.
 
+# 🌐 Enterprise Secure Network Architecture & Verification Lab
+
+<p align="center">
+  <img src="Screenshots/topology.png" alt="Network Topology Diagram" width="700"/>
+</p>
+
 📊 Verification & Testing
 The project includes a formal verification matrix covering:
 
