@@ -1,7 +1,7 @@
 # 🌐 Enterprise Secure Network Architecture & Verification Lab
 
 <p align="center">
-  <img src="Screenshots/topology.png" alt="Network Topology Diagram" width="700"/>
+  <img src="Screenshots/topology.PNG" alt="Network Topology Diagram" width="700"/>
 </p>
 
 ## 📌 Overview
