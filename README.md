@@ -1,7 +1,3 @@
-You are absolutely right—adding some visual flair makes a technical README.md look much more engaging and professional!
-
-You can copy and paste the code below into your README.md. It uses emojis to make it pop immediately, and I've structured it so you can easily drop in those icons you just looked at.
-
 🌐 Enterprise Secure Network Architecture & Verification Lab
 📌 Overview
 This repository contains the complete network architecture, troubleshooting documentation, and verification reports for a two-site enterprise topology built using GNS3. The project simulates a secure site-to-site WAN deployment connecting Headquarters and Branch routers.
