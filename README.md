@@ -1,46 +1,48 @@
-
-🌐 Enterprise Secure Network Architecture & Verification Lab
-
-📌 Overview
-
-This repository contains the complete network architecture, troubleshooting documentation, and verification reports for a two-site enterprise topology built using GNS3. The project simulates a secure site-to-site WAN deployment connecting Headquarters and Branch routers.
-
-🚀 Key Architecture & Features
-🛡️ 1. Secure Site-to-Site VPN
-IPsec & ISAKMP: Configured cryptographic parameters with alignment on transform-sets and ACLs to ensure secure, encrypted communication.
-
-Connectivity: Full encrypted packet transit between internal subnets.
-
-🧱 2. Perimeter Security & ZBF
-Zone Separation: Configured INSIDE and OUTSIDE zones.
-
-Traffic Inspection: Implemented inspection policies (ZP-INSIDE-TO-OUTSIDE) and enforced a Default Deny policy to drop unsolicited incoming traffic.
-
-⚙️ 3. Routing & Hardening
-OSPFv2 Routing: Established dynamic routing with MD5 authentication.
-
-AAA & SSHv2: Secured administrative access to mitigate lockout risks.
-
-⏱️ 4. Monitoring & Management
-NTP: Headquarters as Master time source; Branch as client.
-
-Syslog: Comprehensive informational-level logging.
-
-SNMPv3: Secure administrative group and view definitions.
-
 # 🌐 Enterprise Secure Network Architecture & Verification Lab
 
 <p align="center">
-  <img src="Screenshots/topology.png" alt="Network Topology Diagram" width="700"/>
+  <img src="images/topology.png" alt="Network Topology Diagram" width="700"/>
 </p>
 
-📊 Verification & Testing
+## 📌 Overview
+This repository contains the complete network architecture, troubleshooting documentation, and verification reports for a two-site enterprise topology built using GNS3. The project simulates a secure site-to-site WAN deployment connecting **Headquarters** and **Branch** routers, implementing advanced routing, VPN encryption, zone-based firewalls, AAA security, and network management services.
+
+---
+
+## 🚀 Key Architecture & Features
+
+### 🛡️ 1. Secure Site-to-Site VPN
+* **IPsec & ISAKMP:** Configured cryptographic parameters with alignment on transform-sets and ACLs to ensure secure, encrypted communication (`QM_IDLE` state verified).
+* **LAN-to-LAN Reachability:** Full encrypted packet transit between internal subnets (`192.168.1.0/24` and `192.168.2.0/24`).
+
+### 🧱 2. Perimeter Security & Zone-Based Firewall (ZBF)
+<p align="left">
+  <img src="http://googleusercontent.com/image_collection/image_retrieval/7304060347880881647" alt="Security Shield" width="60"/>
+</p>
+
+* **Zone Separation:** Configured `INSIDE-ZONE` and `OUTSIDE-ZONE` on the Headquarters router.
+* **Traffic Inspection:** Implemented inspection policies (`ZP-INSIDE-TO-OUTSIDE`) targeting ICMP, TCP, UDP, and OSPF traffic.
+* **Default Deny Policy:** Enforced strict perimeter rules where uninspected or unsolicited incoming traffic from the WAN is automatically dropped by the implicit class-default rule.
+
+### ⚙️ 3. Routing & Device Hardening
+<p align="left">
+  <img src="http://googleusercontent.com/image_collection/image_retrieval/14742156939587188566" alt="Network Router" width="60"/>
+</p>
+
+* **OSPFv2 Routing:** Established dynamic routing across Area 0 using MD5 authentication on point-to-point serial/WAN interfaces.
+* **AAA & Secure Access:** Secured administrative remote management via SSH version 2, backed by local user accounts and AAA authentication frameworks to mitigate lockout risks.
+
+### ⏱️ 4. Management, Monitoring & Time Synchronization
+* **NTP Master/Client Hierarchy:** Configured Headquarters as an authoritative NTP master (`ntp master 3`), with the Branch router actively synchronizing time across the WAN.
+* **Comprehensive Syslog Logging:** Enabled local buffer logging (`65535` buffer size), console logging, and monitor logging at the informational level on both routers.
+* **SNMPv3 Management:** Defined secure SNMPv3 groups (`ITAdminGroup`), views (`AllView`), and administrative user bindings supporting authentication and privacy (`priv`).
+
+---
+
+## 📊 Verification & Testing
 The project includes a formal verification matrix covering:
+* ✅ IPsec Security Associations & Encapsulation/Decapsulation counters.
+* ✅ Zone-Based Firewall packet inspection and `class-default` drop verification.
+* ✅ OSPF neighbor state convergence (`FULL`).
+* ✅ End-to-end encrypted ping tests and NTP clock synchronization.
 
-✅ IPsec SA and Encapsulation counters.
-
-✅ Zone-Based Firewall packet inspection.
-
-✅ OSPF neighbor convergence.
-
-✅ NTP clock synchronization.
